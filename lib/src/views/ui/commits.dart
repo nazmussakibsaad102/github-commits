@@ -22,21 +22,13 @@ class CommitsState extends State<Commits> {
           child: Container(
             width: size.width,
             color: kWhiteColor,
-            child: Stack(
-              children: [
-                Image.asset(
-                  "assets/images/home_cover.png",
-                  fit: BoxFit.contain,
-                ),
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: size.width / 20),
-                  child: Column(
-                    children: [
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: size.width / 20),
+              child: Column(
+                children: [
 
-                    ],
-                  ),
-                )
-              ],
+                ],
+              ),
             ),
           )),
     );

@@ -18,6 +18,7 @@ Map<int, Color> primaryColorMap = {
 // Primary color
 const Color kThemeColor = Color(0xFF333333);
 const Color kLightThemeColor = Color(0xFF404040);
+const Color kDarkThemeColor = Color.fromRGBO(29, 29, 29, 0.94);
 const Color kWhiteColor = Color(0xFFFFFFFF);
 const Color kBlackColor = Color(0xFF000000);
 

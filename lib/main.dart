@@ -6,9 +6,9 @@ import 'package:github_commits/src/views/utils/colors.dart';
 void main() async {
   SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
-          statusBarColor: kWhiteColor,
-          statusBarBrightness: Brightness.light,
-          statusBarIconBrightness: Brightness.dark
+          statusBarColor: kDarkThemeColor,
+          statusBarBrightness: Brightness.dark,
+          statusBarIconBrightness: Brightness.light
       )
   );
 

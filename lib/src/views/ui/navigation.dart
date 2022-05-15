@@ -38,43 +38,34 @@ class NavigationState extends State<Navigation> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      bottomNavigationBar: Container(
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.only(
-              topRight: Radius.circular(30), topLeft: Radius.circular(30)),
-          boxShadow: [
-            BoxShadow(color: kLightGreyColor, spreadRadius: 0, blurRadius: 10),
+      backgroundColor: kDarkThemeColor,
+      bottomNavigationBar:
+      SizedBox(
+        height: 63,
+        child: BottomNavigationBar(
+          elevation: 0,
+          backgroundColor: kDarkThemeColor,
+          type: BottomNavigationBarType.fixed,
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: (_selectedIndex == 0)
+                  ? Image.asset("assets/images/git_commit_logo.png",height: size.width/15,width: size.width/15,)
+                  : Image.asset("assets/images/git_commit_logo.png",color: kDarkBlueColor,height: size.width/15,width: size.width/15,),
+              label: 'Commits',
+            ),
+            BottomNavigationBarItem(
+              icon: (_selectedIndex == 1)
+                  ? Image.asset("assets/images/user_logo.png",height: size.width/15,width: size.width/15,)
+                  : Image.asset("assets/images/user_logo.png",color: kDarkBlueColor,height: size.width/15,width: size.width/15,),
+              label: 'User Profile',
+            ),
           ],
-        ),
-        child: SizedBox(
-          height: 70,
-          child: ClipRRect(
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(30.0),
-              topRight: Radius.circular(30.0),
-            ),
-            child: BottomNavigationBar(
-              type: BottomNavigationBarType.fixed,
-              items: <BottomNavigationBarItem>[
-                BottomNavigationBarItem(
-                  icon: (_selectedIndex == 0)
-                      ? Image.asset("assets/images/git_commit_logo.png",height: size.width/15,width: size.width/15,)
-                      : Image.asset("assets/images/git_commit_logo.png",color: kBlackColor,height: size.width/15,width: size.width/15,),
-                  label: 'Home',
-                ),
-                BottomNavigationBarItem(
-                  icon: (_selectedIndex == 1)
-                      ? Image.asset("assets/images/user_logo.png",height: size.width/15,width: size.width/15,)
-                      : Image.asset("assets/images/user_logo.png",color: kBlackColor,height: size.width/15,width: size.width/15,),
-                  label: 'Chat',
-                ),
-              ],
-              currentIndex: _selectedIndex,
-              fixedColor: kThemeColor,
-              iconSize: 28,
-              onTap: _onItemTapped,
-            ),
-          ),
+          currentIndex: _selectedIndex,
+          selectedItemColor: kBlueColor,
+          unselectedItemColor: kDarkBlueColor,
+          selectedLabelStyle: const TextStyle(fontSize: 10,fontWeight: FontWeight.w500),
+          unselectedLabelStyle: const TextStyle(fontSize: 10,fontWeight: FontWeight.w400),
+          onTap: _onItemTapped,
         ),
       ),
       body: _widgetOptions.elementAt(_selectedIndex),

@@ -18,6 +18,8 @@ Map<int, Color> primaryColorMap = {
 // Primary color
 const Color kThemeColor = Color(0xFF333333);
 const Color kLightThemeColor = Color(0xFF404040);
+const Color kDarkThemeColor = Color(0xFF161616);
+const Color kSemiDarkThemeColor = Color(0xFF1D1D1D);
 const Color kWhiteColor = Color(0xFFFFFFFF);
 const Color kBlackColor = Color(0xFF000000);
 

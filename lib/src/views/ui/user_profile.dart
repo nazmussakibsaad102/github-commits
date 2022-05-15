@@ -25,7 +25,7 @@ class UserProfileState extends State<UserProfile> {
             child: Container(
               margin: EdgeInsets.symmetric(horizontal: size.width / 20),
               child: Column(
-                children: [],
+                children: const [],
               ),
             ),
           )),

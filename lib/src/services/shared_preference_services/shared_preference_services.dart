@@ -55,5 +55,4 @@ class SharedPrefsServices {
   static Future<bool> clearAllData() {
     return _prefsInstance.clear();
   }
-
 }

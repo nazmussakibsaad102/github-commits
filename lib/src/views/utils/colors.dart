@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 
-
 Map<int, Color> primaryColorMap = {
-  50: const Color.fromRGBO(51, 51, 51, .1),
-  100: const Color.fromRGBO(51, 51, 51, .2),
-  200: const Color.fromRGBO(51, 51, 51, .3),
-  300: const Color.fromRGBO(51, 51, 51, .4),
-  400: const Color.fromRGBO(51, 51, 51, .5),
-  500: const Color.fromRGBO(51, 51, 51, .6),
-  600: const Color.fromRGBO(51, 51, 51, .7),
-  700: const Color.fromRGBO(51, 51, 51, .8),
-  800: const Color.fromRGBO(51, 51, 51, .9),
-  900: const Color.fromRGBO(51, 51, 51, 1),
+  50: const Color.fromRGBO(64, 64, 64, .1),
+  100: const Color.fromRGBO(64, 64, 64, .2),
+  200: const Color.fromRGBO(64, 64, 64, .3),
+  300: const Color.fromRGBO(64, 64, 64, .4),
+  400: const Color.fromRGBO(64, 64, 64, .5),
+  500: const Color.fromRGBO(64, 64, 64, .6),
+  600: const Color.fromRGBO(64, 64, 64, .7),
+  700: const Color.fromRGBO(64, 64, 64, .8),
+  800: const Color.fromRGBO(64, 64, 64, .9),
+  900: const Color.fromRGBO(64, 64, 64, 1),
 };
-
 
 // Primary color
 const Color kThemeColor = Color(0xFF333333);

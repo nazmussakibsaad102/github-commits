@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
           systemOverlayStyle: SystemUiOverlayStyle.dark,
         ),
       ),
-      home:  const  Navigation(selectedIndex:0),
+      home: const Navigation(selectedIndex: 0),
     );
   }
 }

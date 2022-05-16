@@ -10,7 +10,7 @@ class CommitAPIService {
 
   Future<ResponseObject> getCommitList() async {
     try {
-      Uri uri = Uri.parse('$baseURL/repos/flutter/flutter/commits?sha=master');
+      Uri uri = Uri.parse('$baseURL/repos/flutter/flutter/commits?sha=master&per_page=100');
       _logger.i(uri);
       final request = http.Request("GET", uri);
       // header data for api

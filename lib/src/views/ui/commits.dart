@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:github_commits/src/business_logics/providers/commit_provider.dart';
+import 'package:github_commits/src/business_logics/utils/log_debugger.dart';
 import 'package:github_commits/src/views/utils/custom_text_styles.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
 import '../utils/colors.dart';
@@ -146,8 +148,10 @@ class CommitsState extends State<Commits> {
                                         color: kLightThemeColor,
                                         thickness: 1.0,
                                       ),
-                                  itemCount: 10),
-                            ),
+                                  itemCount: ((commitProvider.allCommitResponse?.commits?.length??0)<10)
+                                ?commitProvider.allCommitResponse?.commits?.length??0
+                                :10,
+                            ),),
                       const SizedBox(
                         height: 11.0,
                       ),
@@ -203,8 +207,9 @@ class SingleCommit extends StatelessWidget {
                   getFirstLine(commitMessage),
                   style: kSubtitleTextStyle,
                 )),
+                SizedBox(width: 14,),
                 Text(
-                  commitTime,
+                  getFormattedDate(commitTime),
                   style: kGreyTextStyle,
                 )
               ],
@@ -244,9 +249,25 @@ class SingleCommit extends StatelessWidget {
       ),
     );
   }
-
   getFirstLine(String message) {
     List firstLine = message.split("\n");
     return firstLine.first;
+  }
+  getFormattedDate(String time){
+    var now = DateTime.now();
+    var date = DateTime.parse(time);
+    var difference= now.difference(date).inHours.toInt();
+    LogDebugger.instance.i("difference of the two date is $difference hours");
+    if(difference <=24){
+      String formattedDate = DateFormat("HH:mm").format(date);
+      return formattedDate;
+    }else if(difference > 24 && difference <=  168){
+      String formattedDate = DateFormat("EEEE").format(date);
+      return formattedDate;
+    }else{
+      String formattedDate = DateFormat("dd/mm/yy").format(date);
+      return formattedDate;
+    }
+
   }
 }

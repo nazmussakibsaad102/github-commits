@@ -264,7 +264,8 @@ class SingleCommit extends StatelessWidget {
   getFormattedDate(String time) {
     var now = DateTime.now();
     var date = DateTime.parse(time);
-    var difference = now.difference(date).inDays.toInt();
+    var localDate = date.add(const Duration(hours: 6));
+    var difference = now.difference(localDate).inDays.toInt();
     LogDebugger.instance.i("difference of the two date is $difference days");
     if (difference < 1) {
       String formattedDate = DateFormat("HH:mm").format(date);

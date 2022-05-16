@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:github_commits/src/app.dart';
 import 'package:github_commits/src/business_logics/providers/commit_provider.dart';
+import 'package:github_commits/src/business_logics/providers/user_profile_provider.dart';
 import 'package:github_commits/src/services/shared_preference_services/shared_preference_services.dart';
 import 'package:github_commits/src/views/utils/colors.dart';
 import 'package:provider/provider.dart';
@@ -13,6 +14,7 @@ void main() async {
 
   final List<ChangeNotifierProvider> providerList = [
     ChangeNotifierProvider<CommitProvider>(create: (_) => CommitProvider()),
+    ChangeNotifierProvider<UserProfileProvider>(create: (_) => UserProfileProvider()),
   ];
 
   WidgetsFlutterBinding.ensureInitialized();

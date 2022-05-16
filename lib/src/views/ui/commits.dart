@@ -20,11 +20,9 @@ class CommitsState extends State<Commits> {
   void initState() {
     CommitProvider commitProvider =
         Provider.of<CommitProvider>(context, listen: false);
-    if ((commitProvider.isAccepted) == false) {
-      WidgetsBinding.instance.addPostFrameCallback((_) async {
-        await commitProvider.getCommitList();
-      });
-    }
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await commitProvider.getCommitList();
+    });
 
     super.initState();
   }
@@ -111,47 +109,53 @@ class CommitsState extends State<Commits> {
                             )
                           : Expanded(
                               child: ListView.separated(
-                                  scrollDirection: Axis.vertical,
-                                  shrinkWrap: true,
-                                  itemBuilder: (context, index) {
-                                    return SingleCommit(
-                                      size: size,
-                                      commitMessage: commitProvider
-                                              .allCommitResponse
-                                              ?.commits?[index]
-                                              .commit
-                                              ?.message ??
-                                          "",
-                                      commitTime: commitProvider
-                                              .allCommitResponse
-                                              ?.commits?[index]
-                                              .commit
-                                              ?.committer
-                                              ?.date ??
-                                          "",
-                                      authorImg: commitProvider
-                                              .allCommitResponse
-                                              ?.commits?[index]
-                                              .authorImg
-                                              ?.avatarUrl ??
-                                          "",
-                                      authorName: commitProvider
-                                              .allCommitResponse
-                                              ?.commits?[index]
-                                              .commit
-                                              ?.author
-                                              ?.name ??
-                                          "",
-                                    );
-                                  },
-                                  separatorBuilder: (_, __) => const Divider(
-                                        color: kLightThemeColor,
-                                        thickness: 1.0,
-                                      ),
-                                  itemCount: ((commitProvider.allCommitResponse?.commits?.length??0)<10)
-                                ?commitProvider.allCommitResponse?.commits?.length??0
-                                :10,
-                            ),),
+                                scrollDirection: Axis.vertical,
+                                shrinkWrap: true,
+                                itemBuilder: (context, index) {
+                                  return SingleCommit(
+                                    size: size,
+                                    commitMessage: commitProvider
+                                            .allCommitResponse
+                                            ?.commits?[index]
+                                            .commit
+                                            ?.message ??
+                                        "",
+                                    commitTime: commitProvider
+                                            .allCommitResponse
+                                            ?.commits?[index]
+                                            .commit
+                                            ?.committer
+                                            ?.date ??
+                                        "",
+                                    authorImg: commitProvider
+                                            .allCommitResponse
+                                            ?.commits?[index]
+                                            .authorImg
+                                            ?.avatarUrl ??
+                                        "",
+                                    authorName: commitProvider
+                                            .allCommitResponse
+                                            ?.commits?[index]
+                                            .commit
+                                            ?.author
+                                            ?.name ??
+                                        "",
+                                  );
+                                },
+                                separatorBuilder: (_, __) => const Divider(
+                                  color: kLightThemeColor,
+                                  thickness: 1.0,
+                                ),
+                                itemCount: ((commitProvider.allCommitResponse
+                                                ?.commits?.length ??
+                                            0) <
+                                        10)
+                                    ? commitProvider.allCommitResponse?.commits
+                                            ?.length ??
+                                        0
+                                    : 10,
+                              ),
+                            ),
                       const SizedBox(
                         height: 11.0,
                       ),
@@ -207,7 +211,9 @@ class SingleCommit extends StatelessWidget {
                   getFirstLine(commitMessage),
                   style: kSubtitleTextStyle,
                 )),
-                SizedBox(width: 14,),
+                const SizedBox(
+                  width: 14,
+                ),
                 Text(
                   getFormattedDate(commitTime),
                   style: kGreyTextStyle,
@@ -249,29 +255,29 @@ class SingleCommit extends StatelessWidget {
       ),
     );
   }
+
   getFirstLine(String message) {
     List firstLine = message.split("\n");
     return firstLine.first;
   }
-  getFormattedDate(String time){
+
+  getFormattedDate(String time) {
     var now = DateTime.now();
     var date = DateTime.parse(time);
-    var difference= now.difference(date).inDays.toInt();
+    var difference = now.difference(date).inDays.toInt();
     LogDebugger.instance.i("difference of the two date is $difference days");
-    if(difference <1){
+    if (difference < 1) {
       String formattedDate = DateFormat("HH:mm").format(date);
       return formattedDate;
-    }else if(difference == 1){
+    } else if (difference == 1) {
       String formattedDate = "Yesterday";
       return formattedDate;
-    }
-    else if(difference >= 1 && difference <  7){
+    } else if (difference >= 1 && difference < 7) {
       String formattedDate = DateFormat("EEEE").format(date);
       return formattedDate;
-    }else{
+    } else {
       String formattedDate = DateFormat("dd/mm/yy").format(date);
       return formattedDate;
     }
-
   }
 }

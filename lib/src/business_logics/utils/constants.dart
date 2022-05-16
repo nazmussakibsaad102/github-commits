@@ -1,1 +1,1 @@
-const String baseURL = "https://api.github.com/repos/flutter/flutter/commits";
+const String baseURL = "https://api.github.com";

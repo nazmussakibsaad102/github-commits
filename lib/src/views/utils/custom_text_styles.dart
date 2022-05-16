@@ -11,3 +11,5 @@ const TextStyle kGreyTextStyle =
     TextStyle(fontSize: 12.0, color: kGreyColor, fontFamily: "SourceSansPro");
 const TextStyle kMediumGreyTextStyle =
     TextStyle(fontSize: 14.0, color: kGreyColor, fontFamily: "SourceSansPro");
+const TextStyle kBottomNavTextStyle =
+TextStyle(fontSize: 10.0, color: kGreyColor, fontFamily: "SourceSansPro");

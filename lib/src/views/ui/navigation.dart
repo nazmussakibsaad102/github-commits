@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:github_commits/src/views/utils/custom_text_styles.dart';
 import '../ui/commits.dart';
 import '../ui/user_profile.dart';
 
@@ -35,8 +36,8 @@ class NavigationState extends State<Navigation> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: kDarkThemeColor,
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(top: 10.0, bottom: 17.0),
+      bottomNavigationBar: Container(
+        height: 63.0,
         child: BottomNavigationBar(
           elevation: 0,
           backgroundColor: kDarkThemeColor,
@@ -77,9 +78,9 @@ class NavigationState extends State<Navigation> {
           selectedItemColor: kBlueColor,
           unselectedItemColor: kDarkBlueColor,
           selectedLabelStyle:
-              const TextStyle(fontSize: 10, fontWeight: FontWeight.w500),
+              kBottomNavTextStyle,
           unselectedLabelStyle:
-              const TextStyle(fontSize: 10, fontWeight: FontWeight.w400),
+              kBottomNavTextStyle,
           onTap: _onItemTapped,
         ),
       ),

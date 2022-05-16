@@ -100,8 +100,6 @@ class UserProfileState extends State<UserProfile> {
                                   "Bio: ${userProfileProvider.userProfileResponse?.bio??"n/a"}",
                                   textAlign: TextAlign.center,
                                   style: kTitleTextStyle,
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
                                 ),
                               ),
                               const SizedBox(height: 16.0),

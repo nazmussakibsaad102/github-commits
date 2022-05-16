@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:github_commits/src/business_logics/models/commit_response_model.dart';
-import 'package:logger/logger.dart';
 import '../../services/repository.dart';
 import '../models/api_response_object.dart';
 
 class CommitProvider extends ChangeNotifier {
   bool _isAccepted = false, _inProgress = false, _isError = false;
-  final Logger _logger = Logger();
   AllCommitsResponseModel? _allCommitsResponseModel;
 
   bool get inProgress => _inProgress;
@@ -23,8 +21,6 @@ class CommitProvider extends ChangeNotifier {
     _inProgress = true;
     notifyListeners();
     final response = await repository.getCommitList();
-    // print(_response);
-    _logger.i("response code:${response.id}");
     if (response.id == ResponseCode.successful) {
       _inProgress = false;
       _allCommitsResponseModel = response.object as AllCommitsResponseModel;

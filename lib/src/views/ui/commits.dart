@@ -1,8 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:github_commits/src/business_logics/providers/commit_provider.dart';
-import 'package:github_commits/src/business_logics/utils/log_debugger.dart';
 import 'package:github_commits/src/views/utils/custom_text_styles.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
@@ -266,7 +265,6 @@ class SingleCommit extends StatelessWidget {
     var date = DateTime.parse(time);
     var localDate = date.add(const Duration(hours: 6));
     var difference = now.difference(localDate).inDays.toInt();
-    LogDebugger.instance.i("difference of the two date is $difference days");
     if (difference < 1) {
       String formattedDate = DateFormat("HH:mm").format(date);
       return formattedDate;

@@ -5,12 +5,12 @@ import 'package:logger/logger.dart';
 import '../../business_logics/models/api_response_object.dart';
 import '../../business_logics/utils/constants.dart';
 
-class CommitAPIServices {
+class CommitAPIService {
   final Logger _logger = Logger();
 
   Future<ResponseObject> getCommitList() async {
     try {
-      Uri uri = Uri.parse('$baseURL?sha=master');
+      Uri uri = Uri.parse('$baseURL/repos/flutter/flutter/commits?sha=master');
       _logger.i(uri);
       final request = http.Request("GET", uri);
       // header data for api

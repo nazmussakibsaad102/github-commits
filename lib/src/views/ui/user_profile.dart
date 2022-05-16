@@ -72,7 +72,7 @@ class UserProfileState extends State<UserProfile> {
                                           .userProfileResponse?.avatarUrl ??
                                       "",
                                   placeholder: (context, url) => Image.asset(
-                                    "assets/images/card_placeholder.png",
+                                    "assets/images/card_placeholder.png",fit: BoxFit.contain,
                                     height: 168,
                                     width: 168,
                                   ),
@@ -94,8 +94,8 @@ class UserProfileState extends State<UserProfile> {
                                 style: kMediumGreyTextStyle,
                               ),
                               const SizedBox(height: 16.0),
-                              SizedBox(
-                                width: 151.0,
+                              Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 24.0),
                                 child: Text(
                                   "Bio: ${userProfileProvider.userProfileResponse?.bio??"n/a"}",
                                   textAlign: TextAlign.center,

@@ -256,12 +256,16 @@ class SingleCommit extends StatelessWidget {
   getFormattedDate(String time){
     var now = DateTime.now();
     var date = DateTime.parse(time);
-    var difference= now.difference(date).inHours.toInt();
-    LogDebugger.instance.i("difference of the two date is $difference hours");
-    if(difference <=24){
+    var difference= now.difference(date).inDays.toInt();
+    LogDebugger.instance.i("difference of the two date is $difference days");
+    if(difference <1){
       String formattedDate = DateFormat("HH:mm").format(date);
       return formattedDate;
-    }else if(difference > 24 && difference <=  168){
+    }else if(difference == 1){
+      String formattedDate = "Yesterday";
+      return formattedDate;
+    }
+    else if(difference >= 1 && difference <  7){
       String formattedDate = DateFormat("EEEE").format(date);
       return formattedDate;
     }else{

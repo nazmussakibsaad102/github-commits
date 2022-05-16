@@ -65,8 +65,8 @@ class UserProfileState extends State<UserProfile> {
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(100.0),
                                 child: CachedNetworkImage(
-                                  height: 168,
-                                  width: 168,
+                                  height: 168.0,
+                                  width: 168.0,
                                   fit: BoxFit.fill,
                                   imageUrl: userProfileProvider
                                           .userProfileResponse?.avatarUrl ??
@@ -93,7 +93,7 @@ class UserProfileState extends State<UserProfile> {
                                 textAlign: TextAlign.center,
                                 style: kMediumGreyTextStyle,
                               ),
-                              const SizedBox(height: 16),
+                              const SizedBox(height: 16.0),
                               SizedBox(
                                 width: 151.0,
                                 child: Text(
@@ -104,19 +104,19 @@ class UserProfileState extends State<UserProfile> {
                                   overflow: TextOverflow.ellipsis,
                                 ),
                               ),
-                              const SizedBox(height: 16),
+                              const SizedBox(height: 16.0),
                               Text(
                                 "Public Repos: ${userProfileProvider.userProfileResponse?.publicRepos}",
                                 textAlign: TextAlign.center,
                                 style: kTitleTextStyle,
                               ),
-                              const SizedBox(height: 8),
+                              const SizedBox(height: 8.0),
                               Text(
                                 "Public Gists: ${userProfileProvider.userProfileResponse?.publicGists}",
                                 textAlign: TextAlign.center,
                                 style: kTitleTextStyle,
                               ),
-                              const SizedBox(height: 8),
+                              const SizedBox(height: 8.0),
                               const Text(
                                 "Private Repos: 5",
                                 textAlign: TextAlign.center,

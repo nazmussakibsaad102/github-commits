@@ -85,7 +85,7 @@ class CommitsState extends State<Commits> {
                                     return Container(
                                       decoration: BoxDecoration(
                                           borderRadius:
-                                              BorderRadius.circular(10)),
+                                              BorderRadius.circular(10.0)),
                                       width: double.infinity,
                                       height: 100.0,
                                       child: Shimmer.fromColors(
@@ -94,7 +94,7 @@ class CommitsState extends State<Commits> {
                                         child: Container(
                                           decoration: BoxDecoration(
                                             borderRadius:
-                                                BorderRadius.circular(10),
+                                                BorderRadius.circular(10.0),
                                             color: kLightGreyColor,
                                           ),
                                         ),
@@ -212,7 +212,7 @@ class SingleCommit extends StatelessWidget {
                   style: kSubtitleTextStyle,
                 )),
                 const SizedBox(
-                  width: 14,
+                  width: 14.0,
                 ),
                 Text(
                   getFormattedDate(commitTime),

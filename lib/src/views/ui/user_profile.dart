@@ -97,7 +97,7 @@ class UserProfileState extends State<UserProfile> {
                               SizedBox(
                                 width: 151.0,
                                 child: Text(
-                                  "Bio: ${userProfileProvider.userProfileResponse?.bio}",
+                                  "Bio: ${userProfileProvider.userProfileResponse?.bio??"n/a"}",
                                   textAlign: TextAlign.center,
                                   style: kTitleTextStyle,
                                   maxLines: 1,
@@ -112,7 +112,7 @@ class UserProfileState extends State<UserProfile> {
                               ),
                               const SizedBox(height: 8),
                               Text(
-                                "Public Gists: ${userProfileProvider.userProfileResponse?.publicRepos}",
+                                "Public Gists: ${userProfileProvider.userProfileResponse?.publicGists}",
                                 textAlign: TextAlign.center,
                                 style: kTitleTextStyle,
                               ),

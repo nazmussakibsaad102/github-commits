@@ -8,7 +8,7 @@ const TextStyle kLargeTitleTextStyle =
 const TextStyle kSubtitleTextStyle =
     TextStyle(fontSize: 17.0, color: kWhiteColor, fontFamily: "SourceSansPro");
 const TextStyle kGreyTextStyle =
-    TextStyle(fontSize: 12.0, color: kGreyColor, fontFamily: "SourceSansPro");
+    TextStyle(fontSize: 12.0, color: kGreyColor, fontFamily: "SourceCodePro");
 const TextStyle kMediumGreyTextStyle =
     TextStyle(fontSize: 14.0, color: kGreyColor, fontFamily: "SourceSansPro");
 const TextStyle kBottomNavTextStyle =

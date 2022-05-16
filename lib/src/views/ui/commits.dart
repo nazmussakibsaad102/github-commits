@@ -228,14 +228,14 @@ class SingleCommit extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(100.0),
                   child: CachedNetworkImage(
-                    height: 20,
-                    width: 20,
+                    height: 20.0,
+                    width: 20.0,
                     fit: BoxFit.fill,
                     imageUrl: authorImg,
                     placeholder: (context, url) => Image.asset(
                       "assets/images/card_placeholder.png",
-                      height: 20,
-                      width: 20,
+                      height: 20.0,
+                      width: 20.0,
                     ),
                     errorWidget: (context, url, error) =>
                         const Icon(Icons.error),
